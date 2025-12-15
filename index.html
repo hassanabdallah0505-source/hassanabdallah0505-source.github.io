@@ -6,42 +6,44 @@
   <title>Hassan Abdallah | CV</title>
   <meta name="description" content="Hassan Abdallah — Full-time Computer Science BSc student in London. CV, experience, education, and skills." />
 
-  <!-- ✅ IMPORTANT: only enable reveal hiding if JS is running -->
   <script>
     document.documentElement.classList.add("js");
   </script>
 
   <style>
-:root{
-  --bg:#071a17;
-  --card:#0b2a24;
-  --border:#134e4a;
-  --text:#ecfeff;
-  --muted:#99f6e4;
-  --accent:#14b8a6;   /* green buttons */
-  --accent2:#0f766e;
-  --pill:#134e4a;
-  --shadow: 0 10px 30px rgba(0,0,0,.45);
-}
+    :root{
+      --bg:#071a17;
+      --card:#0b2a24;
+      --border:#134e4a;
+      --text:#ecfeff;
+      --muted:#99f6e4;
+      --accent:#14b8a6;   /* green buttons */
+      --accent2:#0f766e;
+      --pill:#134e4a;
+      --shadow: 0 10px 30px rgba(0,0,0,.45);
+    }
+
     *{ box-sizing:border-box; }
     html { scroll-behavior: smooth; }
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: radial-gradient(1200px 600px at 20% -10%, rgba(42,99,255,.18), transparent 55%),
-                  radial-gradient(900px 500px at 90% 10%, rgba(184,199,255,.14), transparent 55%),
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(20,184,166,.18), transparent 55%),
+                  radial-gradient(900px 500px at 90% 10%, rgba(153,246,228,.14), transparent 55%),
                   var(--bg);
       color:var(--text);
     }
-    a{ color:#9db7ff; text-decoration:none; }
+
+    a{ color:#99f6e4; text-decoration:none; }
     a:hover{ text-decoration:underline; }
 
     .wrap{ max-width: 1040px; margin: 0 auto; padding: 20px 20px 60px; }
+
     .nav{
       position: sticky; top: 0; z-index: 50;
       backdrop-filter: blur(10px);
-      background: rgba(11,15,25,.65);
-      border-bottom: 1px solid rgba(34,48,79,.7);
+      background: rgba(7,26,23,.75);
+      border-bottom: 1px solid var(--border);
     }
     .nav-inner{
       max-width: 1040px; margin: 0 auto;
@@ -58,22 +60,28 @@
       font-size: 13px;
       padding: 8px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(34,48,79,.8);
-      background: rgba(17,24,42,.35);
+      border: 1px solid var(--border);
+      background: rgba(11,42,36,.55);
       transition: transform .15s ease, background .15s ease;
     }
-    .nav-links a:hover{ transform: translateY(-1px); background: rgba(17,24,42,.7); text-decoration:none; }
+    .nav-links a:hover{
+      transform: translateY(-1px);
+      background: rgba(11,42,36,.85);
+      text-decoration:none;
+    }
 
     .card{
-      background: rgba(17,24,42,.85);
-      border: 1px solid rgba(34,48,79,.9);
+      background: rgba(11,42,36,.90);
+      border: 1px solid var(--border);
       border-radius: 18px;
       padding: 22px;
       box-shadow: var(--shadow);
       margin-top: 16px;
     }
     .grid{
-      display:grid; grid-template-columns: 1fr; gap: 16px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
       margin-top: 16px;
     }
     @media (min-width: 950px){
@@ -81,7 +89,7 @@
     }
 
     h1{ margin:0 0 6px; font-size: 42px; letter-spacing: .2px; }
-    h2{ margin:0 0 12px; font-size: 22px; color:#b8c7ff; }
+    h2{ margin:0 0 12px; font-size: 22px; color:#bff5ee; }
     p{ margin: 10px 0; line-height:1.55; }
     .muted{ color: var(--muted); }
 
@@ -90,21 +98,32 @@
       padding: 10px 14px;
       border-radius: 14px;
       background: var(--accent);
-      color: white;
+      color: #052e2b;
       font-weight: 650;
       margin: 10px 10px 0 0;
-      border: 1px solid rgba(255,255,255,.12);
-      transition: transform .15s ease, filter .15s ease;
+      border: 1px solid rgba(255,255,255,.10);
+      transition: transform .15s ease, filter .15s ease, box-shadow .15s ease;
     }
-    .btn:hover{ transform: translateY(-1px); filter: brightness(1.05); text-decoration:none; }
-    .btn.secondary{ background: var(--accent2); }
+    .btn:hover{
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+      box-shadow: 0 8px 25px rgba(20,184,166,.25);
+      text-decoration:none;
+    }
+    .btn.secondary{
+      background: var(--accent2);
+      color: #e6fffb;
+      box-shadow: none;
+    }
 
     .chips{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 10px; }
     .chip{
-      font-size: 13px; color: var(--muted);
-      border: 1px solid rgba(34,48,79,.9);
-      padding: 7px 10px; border-radius: 999px;
-      background: rgba(17,24,42,.35);
+      font-size: 13px;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(11,42,36,.55);
     }
 
     ul{ margin: 8px 0 0 18px; }
@@ -114,42 +133,39 @@
       display:inline-block;
       padding: 7px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(43,59,99,.95);
+      border: 1px solid var(--border);
       margin: 6px 6px 0 0;
       font-size: 14px;
-      background: rgba(17,24,42,.35);
+      background: rgba(11,42,36,.55);
       transition: transform .12s ease, border-color .12s ease;
       cursor: default;
     }
-    .pill:hover{ transform: translateY(-1px); border-color: rgba(157,183,255,.65); }
+    .pill:hover{ transform: translateY(-1px); border-color: #5eead4; }
 
     .section-note{ font-size: 13px; color: var(--muted); margin-top: 10px; }
 
-    /* ✅ FIX: content is visible by default */
+    /* Content visible by default */
     .reveal{ opacity: 1; transform: none; }
 
-    /* Only hide/animate when JS is confirmed running */
+    /* Animate only when JS is running */
     .js .reveal{
       opacity: 0;
       transform: translateY(14px);
       transition: opacity .6s ease, transform .6s ease;
       will-change: opacity, transform;
     }
-    .js .reveal.show{
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .js .reveal.show{ opacity: 1; transform: translateY(0); }
 
     .input{
       width: 100%;
       padding: 10px 12px;
       border-radius: 12px;
-      border: 1px solid rgba(34,48,79,.9);
-      background: rgba(11,15,25,.35);
+      border: 1px solid var(--border);
+      background: rgba(7,26,23,.55);
       color: var(--text);
       outline: none;
     }
-    .input::placeholder{ color: rgba(170,182,214,.75); }
+    .input::placeholder{ color: rgba(153,246,228,.75); }
 
     .topbtn{
       position: fixed;
@@ -159,13 +175,13 @@
       display: none;
       padding: 10px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(34,48,79,.9);
-      background: rgba(17,24,42,.85);
+      border: 1px solid var(--border);
+      background: rgba(11,42,36,.90);
       color: var(--text);
       box-shadow: var(--shadow);
       cursor: pointer;
     }
-    .topbtn:hover{ filter: brightness(1.1); }
+    .topbtn:hover{ filter: brightness(1.08); }
 
     .footer{
       text-align:center;
@@ -173,6 +189,7 @@
       font-size: 14px;
       color: var(--muted);
     }
+
     .row{
       display:flex; flex-wrap:wrap; gap: 10px;
       align-items:center; justify-content: space-between;
@@ -181,8 +198,8 @@
       font-size: 12px;
       padding: 6px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(34,48,79,.9);
-      background: rgba(17,24,42,.35);
+      border: 1px solid var(--border);
+      background: rgba(11,42,36,.55);
       color: var(--muted);
     }
   </style>
@@ -234,7 +251,6 @@
       </p>
 
       <p class="section-note">
-        Put <b>index.html</b> and <b>Hassan-Abdallah-CV.pdf</b> in the same folder.
       </p>
     </section>
 
@@ -342,11 +358,12 @@
     const reveals = document.querySelectorAll(".reveal");
     if ("IntersectionObserver" in window) {
       const io = new IntersectionObserver((entries) => {
-        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("show"); });
+        entries.forEach(e => {
+          if (e.isIntersecting) e.target.classList.add("show");
+        });
       }, { threshold: 0.12 });
       reveals.forEach(el => io.observe(el));
     } else {
-      // If observer not supported, just show everything
       reveals.forEach(el => el.classList.add("show"));
     }
 
@@ -358,14 +375,19 @@
     function updateSkillFilter(){
       const q = (search.value || "").trim().toLowerCase();
       let visible = 0;
+
       skills.forEach(s => {
         const txt = (s.dataset.skill || s.textContent).toLowerCase();
         const show = !q || txt.includes(q);
         s.style.display = show ? "inline-block" : "none";
         if (show) visible++;
       });
-      count.textContent = q ? `Showing ${visible} skill(s) matching "${q}".` : `Showing ${visible} skill(s).`;
+
+      count.textContent = q
+        ? `Showing ${visible} skill(s) matching "${q}".`
+        : `Showing ${visible} skill(s).`;
     }
+
     search.addEventListener("input", updateSkillFilter);
     updateSkillFilter();
 
