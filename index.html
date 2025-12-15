@@ -3,105 +3,163 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hassan Abdallah | CV</title>
-  <meta name="description" content="Hassan Abdallah — Full-time Computer Science BSc student in London. CV, experience, education, and skills." />
+  <title>Hassan Abdallah | Portfolio</title>
+  <meta name="description" content="Hassan Abdallah — Computer Science student in London. Portfolio, timeline, and contact." />
 
-  <script>
-    document.documentElement.classList.add("js");
-  </script>
+  <script>document.documentElement.classList.add("js");</script>
 
   <style>
+    /* ===== Theme ===== */
     :root{
+      --bg:#f6fffd;
+      --card: rgba(255,255,255,.88);
+      --border:#c7f5ee;
+      --text:#062a26;
+      --muted:#0f766e;
+      --accent:#14b8a6;
+      --accent2:#0f766e;
+      --shadow: 0 10px 30px rgba(0,0,0,.12);
+      --ring: 0 0 0 3px rgba(20,184,166,.22);
+    }
+
+    html[data-theme="dark"]{
       --bg:#071a17;
-      --card:#0b2a24;
+      --card: rgba(11,42,36,.90);
       --border:#134e4a;
       --text:#ecfeff;
       --muted:#99f6e4;
-      --accent:#14b8a6;   /* green buttons */
+      --accent:#14b8a6;
       --accent2:#0f766e;
-      --pill:#134e4a;
       --shadow: 0 10px 30px rgba(0,0,0,.45);
+      --ring: 0 0 0 3px rgba(20,184,166,.25);
     }
 
     *{ box-sizing:border-box; }
-    html { scroll-behavior: smooth; }
+    html{ scroll-behavior:smooth; }
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: radial-gradient(1200px 600px at 20% -10%, rgba(20,184,166,.18), transparent 55%),
-                  radial-gradient(900px 500px at 90% 10%, rgba(153,246,228,.14), transparent 55%),
-                  var(--bg);
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(20,184,166,.18), transparent 55%),
+        radial-gradient(900px 500px at 90% 10%, rgba(153,246,228,.14), transparent 55%),
+        var(--bg);
       color:var(--text);
     }
 
-    a{ color:#99f6e4; text-decoration:none; }
+    a{ color: var(--muted); text-decoration:none; }
     a:hover{ text-decoration:underline; }
 
-    .wrap{ max-width: 1040px; margin: 0 auto; padding: 20px 20px 60px; }
-
-    .nav{
-      position: sticky; top: 0; z-index: 50;
-      backdrop-filter: blur(10px);
-      background: rgba(7,26,23,.75);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner{
-      max-width: 1040px; margin: 0 auto;
-      padding: 12px 20px;
-      display:flex; gap:12px; align-items:center; justify-content:space-between;
-    }
-    .brand{ display:flex; flex-direction:column; line-height:1.1; }
-    .brand b{ font-size: 15px; }
-    .brand span{ font-size: 12px; color: var(--muted); }
-    .nav-links{
-      display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:flex-end;
-    }
-    .nav-links a{
-      font-size: 13px;
-      padding: 8px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(11,42,36,.55);
-      transition: transform .15s ease, background .15s ease;
-    }
-    .nav-links a:hover{
-      transform: translateY(-1px);
-      background: rgba(11,42,36,.85);
-      text-decoration:none;
-    }
+    .wrap{ max-width:1040px; margin:0 auto; padding:26px 20px 70px; }
 
     .card{
-      background: rgba(11,42,36,.90);
+      background: var(--card);
       border: 1px solid var(--border);
       border-radius: 18px;
       padding: 22px;
       box-shadow: var(--shadow);
-      margin-top: 16px;
-    }
-    .grid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-      margin-top: 16px;
-    }
-    @media (min-width: 950px){
-      .grid{ grid-template-columns: 1.2fr .8fr; }
+      margin-top: 18px;
     }
 
-    h1{ margin:0 0 6px; font-size: 42px; letter-spacing: .2px; }
-    h2{ margin:0 0 12px; font-size: 22px; color:#bff5ee; }
-    p{ margin: 10px 0; line-height:1.55; }
+    h1{
+      margin:0 0 6px;
+      font-size: clamp(32px, 4vw, 44px);
+      line-height: 1.05;
+    }
+    h2{
+      margin:0 0 12px;
+      font-size: 20px;
+      line-height: 1.2;
+      color: color-mix(in srgb, var(--text) 78%, var(--muted));
+    }
+    p{ margin:10px 0; line-height:1.6; }
     .muted{ color: var(--muted); }
 
+    ul{ margin: 8px 0 0 18px; }
+    li{ margin: 6px 0; line-height:1.55; }
+
+    .hr{
+      height: 1px;
+      background: color-mix(in srgb, var(--border) 85%, transparent);
+      margin: 14px 0;
+      border: 0;
+    }
+
+    .footer{
+      text-align:center;
+      margin-top: 22px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* ===== Nav ===== */
+    .nav{
+      position: sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: color-mix(in srgb, var(--bg) 75%, transparent);
+      border-bottom:1px solid var(--border);
+    }
+    .nav-inner{
+      max-width:1040px; margin:0 auto;
+      padding:12px 20px;
+      display:flex; gap:12px; align-items:center;
+    }
+    .brand{ display:flex; flex-direction:column; line-height:1.1; }
+    .brand b{ font-size:15px; }
+    .brand span{ font-size:12px; color: var(--muted); }
+    .brand-link{ text-decoration:none; color:inherit; }
+    .brand-link:hover{ text-decoration:none; }
+
+    .nav-links{
+      margin-left:auto;
+      display:flex; gap:8px; align-items:center; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .nav-links a{
+      font-size:13px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: color-mix(in srgb, var(--card) 55%, transparent);
+      transition: transform .15s ease, background .15s ease, box-shadow .15s ease, border-color .15s ease;
+      color: var(--text);
+    }
+    .nav-links a:hover{
+      transform: translateY(-1px);
+      background: color-mix(in srgb, var(--card) 85%, transparent);
+      text-decoration:none;
+    }
+    .nav-links a.active{
+      border-color: color-mix(in srgb, var(--muted) 70%, var(--border));
+      box-shadow: var(--ring);
+    }
+
+    .theme-toggle{
+      margin-left:8px;
+      border:1px solid var(--border);
+      background: color-mix(in srgb, var(--card) 55%, transparent);
+      color: var(--text);
+      padding:8px 10px;
+      border-radius:999px;
+      cursor:pointer;
+      transition: transform .15s ease, filter .15s ease, box-shadow .15s ease, background .15s ease;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+    .theme-toggle:hover{ transform: translateY(-1px); filter: brightness(1.05); }
+    .theme-toggle:focus-visible{ box-shadow: var(--ring); outline:none; }
+
+    /* ===== Buttons / Inputs ===== */
     .btn{
       display:inline-flex; align-items:center; gap:10px;
-      padding: 10px 14px;
-      border-radius: 14px;
+      padding:10px 14px;
+      border-radius:14px;
       background: var(--accent);
-      color: #052e2b;
-      font-weight: 650;
-      margin: 10px 10px 0 0;
-      border: 1px solid rgba(255,255,255,.10);
+      color:#052e2b;
+      font-weight:650;
+      border:1px solid rgba(255,255,255,.10);
+      cursor:pointer;
       transition: transform .15s ease, filter .15s ease, box-shadow .15s ease;
     }
     .btn:hover{
@@ -112,8 +170,38 @@
     }
     .btn.secondary{
       background: var(--accent2);
-      color: #e6fffb;
-      box-shadow: none;
+      color:#e6fffb;
+      box-shadow:none;
+    }
+
+    .input{
+      width:100%;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background: color-mix(in srgb, var(--bg) 70%, transparent);
+      color: var(--text);
+      outline:none;
+    }
+    .input::placeholder{ color: color-mix(in srgb, var(--muted) 75%, transparent); }
+
+    .section-note{ color: var(--muted); font-size:13px; margin-top:10px; }
+
+    /* Pills / chips */
+    .pill{
+      display:inline-block;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      margin:6px 6px 0 0;
+      font-size:14px;
+      background: color-mix(in srgb, var(--card) 55%, transparent);
+      transition: transform .12s ease, border-color .12s ease, box-shadow .12s ease;
+      color: var(--text);
+    }
+    .pill:hover{
+      transform: translateY(-1px);
+      border-color: color-mix(in srgb, var(--muted) 70%, var(--border));
     }
 
     .chips{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 12px; }
@@ -123,112 +211,192 @@
       border: 1px solid var(--border);
       padding: 7px 10px;
       border-radius: 999px;
-      background: rgba(11,42,36,.55);
+      background: color-mix(in srgb, var(--card) 55%, transparent);
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      flex-wrap:wrap;
     }
-
-    ul{ margin: 8px 0 0 18px; }
-    li{ margin: 6px 0; line-height:1.5; }
-
-    .pill{
-      display:inline-block;
-      padding: 7px 10px;
+    .copy{
+      font-size: 12px;
+      padding: 6px 10px;
       border-radius: 999px;
       border: 1px solid var(--border);
-      margin: 6px 6px 0 0;
-      font-size: 14px;
-      background: rgba(11,42,36,.55);
-      transition: transform .12s ease, border-color .12s ease;
-      cursor: default;
-    }
-    .pill:hover{ transform: translateY(-1px); border-color: #5eead4; }
-
-    .reveal{ opacity: 1; transform: none; }
-    .js .reveal{
-      opacity: 0;
-      transform: translateY(14px);
-      transition: opacity .6s ease, transform .6s ease;
-      will-change: opacity, transform;
-    }
-    .js .reveal.show{ opacity: 1; transform: translateY(0); }
-
-    .input{
-      width: 100%;
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: rgba(7,26,23,.55);
+      background: color-mix(in srgb, var(--bg) 70%, transparent);
       color: var(--text);
-      outline: none;
-    }
-    .input::placeholder{ color: rgba(153,246,228,.75); }
-
-    .topbtn{
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      z-index: 60;
-      display: none;
-      padding: 10px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(11,42,36,.90);
-      color: var(--text);
-      box-shadow: var(--shadow);
       cursor: pointer;
     }
-    .topbtn:hover{ filter: brightness(1.08); }
+    .copy:hover{ filter: brightness(1.06); }
+    .copy:focus-visible{ box-shadow: var(--ring); outline:none; }
 
-    .footer{
-      text-align:center;
-      margin-top: 22px;
-      font-size: 14px;
-      color: var(--muted);
+    /* ===== Layout bits ===== */
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 16px;
     }
+    @media (min-width: 950px){
+      .grid{ grid-template-columns: 1.2fr .8fr; }
+    }
+
+    .profile-img{
+      width:110px; height:110px;
+      border-radius:50%;
+      object-fit:cover;
+      border:3px solid rgba(20,184,166,.9);
+      box-shadow: var(--shadow);
+      background: rgba(255,255,255,.06);
+    }
+
+    .hero{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+    .hero-left{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      flex: 1 1 520px;
+      min-width: 280px;
+    }
+    .hero-actions{ margin-top: 10px; display:flex; gap:10px; flex-wrap:wrap; }
 
     .badge{
       font-size: 12px;
       padding: 6px 10px;
       border-radius: 999px;
       border: 1px solid var(--border);
-      background: rgba(11,42,36,.55);
+      background: color-mix(in srgb, var(--card) 55%, transparent);
       color: var(--muted);
       white-space: nowrap;
     }
 
-    /* ✅ NEW: clean hero layout */
-    .hero{
+    /* ===== Homepage topic cards ===== */
+    .home-grid{
+      margin-top: 14px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    @media (min-width: 780px){
+      .home-grid{ grid-template-columns: repeat(3, 1fr); }
+    }
+    .topic-card{
+      display:block;
+      border:1px solid var(--border);
+      background: color-mix(in srgb, var(--card) 70%, transparent);
+      border-radius: 16px;
+      padding: 14px;
+      color: var(--text);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .topic-card:hover{
+      transform: translateY(-2px);
+      border-color: color-mix(in srgb, var(--muted) 70%, var(--border));
+      background: color-mix(in srgb, var(--card) 90%, transparent);
+      text-decoration:none;
+    }
+    .topic-title{ font-weight: 800; margin:0; }
+    .topic-desc{ margin-top:6px; color: var(--muted); font-size: 13px; }
+
+    .row{ display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; }
+
+    /* ===== Timeline ===== */
+    .timeline-item{
+      position: relative;
+      padding-left: 18px;
+      margin: 14px 0;
+    }
+    .timeline-item::before{
+      content:"";
+      position:absolute;
+      left: 2px;
+      top: 10px;
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: var(--ring);
+    }
+    .timeline-item::after{
+      content:"";
+      position:absolute;
+      left: 6px;
+      top: 22px;
+      width: 2px;
+      height: calc(100% + 12px);
+      background: color-mix(in srgb, var(--border) 85%, transparent);
+    }
+    .timeline-item:last-child::after{ display:none; }
+
+    .timeline-card{
+      border: 1px solid var(--border);
+      background: color-mix(in srgb, var(--card) 70%, transparent);
+      border-radius: 14px;
+      padding: 14px;
+    }
+    .timeline-top{
       display:flex;
-      align-items:center;
+      align-items: baseline;
       justify-content:space-between;
-      gap: 18px;
-      flex-wrap: wrap;
+      gap: 10px;
+      flex-wrap:wrap;
     }
-
-    .hero-left{
+    .timeline-title{
+      font-weight: 800;
+      margin: 0;
+      font-size: 15px;
+    }
+    .timeline-date{
+      font-size: 12px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .timeline-text{
+      margin: 8px 0 0;
+      color: color-mix(in srgb, var(--text) 92%, transparent);
+    }
+    .timeline-tags{
       display:flex;
-      align-items:center;
-      gap: 18px;
-      flex: 1 1 520px;
-      min-width: 280px;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top: 10px;
+    }
+    .timeline-tags .pill{ cursor: pointer; }
+    .timeline-links{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 10px;
+      font-size: 13px;
     }
 
-    .profile-img{
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid rgba(20,184,166,.9);
-      box-shadow: var(--shadow);
-      background: rgba(255,255,255,.06);
+    /* ===== Reveal ===== */
+    .reveal{ opacity:1; transform:none; }
+    .js .reveal{
+      opacity:0;
+      transform: translateY(14px);
+      transition: opacity .6s ease, transform .6s ease;
     }
+    .js .reveal.show{ opacity:1; transform: translateY(0); }
 
-    .hero-text h1{ margin-bottom: 6px; }
-    .hero-actions{ margin-top: 8px; }
+    /* ===== Views (single-file multi-page) ===== */
+    .view{ display:none; }
+    .view.active{ display:block; }
 
     @media (max-width: 520px){
-      h1{ font-size: 34px; }
-      .profile-img{ width: 92px; height: 92px; }
-      .btn{ width: 100%; justify-content:center; }
+      .profile-img{ width:92px; height:92px; }
+      .btn{ width:100%; justify-content:center; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior:auto; }
+      .js .reveal{ transition:none; }
+      .topic-card:hover{ transform:none; }
     }
   </style>
 </head>
@@ -236,193 +404,599 @@
 <body>
   <div class="nav">
     <div class="nav-inner">
-      <div class="brand">
-        <b>Hassan Abdallah</b>
-        <span>Computer Science (BSc) • London</span>
-      </div>
+      <a class="brand-link" href="#home" data-viewlink="home">
+        <div class="brand">
+          <b>Hassan Abdallah</b>
+          <span>Computer Science (BSc) • London</span>
+        </div>
+      </a>
+
       <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
+        <a href="#home" data-viewlink="home">Home</a>
+        <a href="#about" data-viewlink="about">About</a>
+        <a href="#experience" data-viewlink="experience">Experience</a>
+        <a href="#education" data-viewlink="education">Education</a>
+        <a href="#skills" data-viewlink="skills">Skills</a>
+        <a href="#timeline" data-viewlink="timeline">Timeline</a>
+        <a href="#contact" data-viewlink="contact">Contact</a>
       </div>
+
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle theme">
+        <span id="themeIcon" aria-hidden="true">🌙</span>
+        <span>Theme</span>
+      </button>
     </div>
   </div>
 
   <div class="wrap">
 
-    <section id="about" class="card reveal">
-      <div class="hero">
-        <div class="hero-left">
-          <!-- ✅ CHANGE profile.jpg to your real file name -->
-          <img class="profile-img" src="profile.jpg" alt="Hassan Abdallah profile photo" />
-          <div class="hero-text">
-            <h1>Hassan Abdallah</h1>
-            <p class="muted">Full-time Computer Science student (BSc) • London, United Kingdom</p>
-            <span class="badge">Available to learn & grow</span>
+    <!-- ===================== HOME ===================== -->
+    <main id="view-home" class="view active">
+      <section class="card reveal">
+        <div class="hero">
+          <div class="hero-left">
+            <!-- Change profile.jpg to your real filename -->
+            <img class="profile-img" src="profile.jpg" alt="Hassan Abdallah profile photo" />
+            <div>
+              <h1>Hi, I’m Hassan.</h1>
+              <p class="muted">
+                Computer Science student building clean web apps and practical software.
+                Open to internships and opportunities in software engineering.
+              </p>
+
+              <div class="hero-actions">
+                <a class="btn" href="#timeline" data-viewjump="timeline">Latest updates</a>
+                <a class="btn secondary" href="#contact" data-viewjump="contact">Contact</a>
+                <!-- Change filename to your real PDF name -->
+                <a class="btn secondary" href="Hassan-Abdallah-CV.pdf" target="_blank" rel="noopener">Download CV</a>
+              </div>
+
+              <div class="chips">
+                <span class="chip">
+                  Email:
+                  <a href="mailto:Hassanabdallah0505@gmail.com">Hassanabdallah0505@gmail.com</a>
+                </span>
+                <span class="chip">
+                  LinkedIn:
+                  <a href="https://www.linkedin.com/in/hassan-abdallah-5248aa334" target="_blank" rel="noopener">View profile</a>
+                </span>
+                <span class="chip"><span class="badge">Available to learn & grow</span></span>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div class="chips">
-        <span class="chip">Email: <a href="mailto:Hassanabdallah0505@gmail.com">Hassanabdallah0505@gmail.com</a></span>
-        <span class="chip">Phone: +07784015778</span>
-        <span class="chip">LinkedIn: <a href="https://www.linkedin.com/in/hassan-abdallah-5248aa334" target="_blank" rel="noopener">www.linkedin.com/in/hassan-abdallah-5248aa334</a></span>
-      </div>
+      <section class="card reveal">
+        <h2>Explore</h2>
+        <p class="muted">Pick a section.</p>
 
-      <p>
-        Confident and hardworking Computer Science student with strong communication and organisational skills.
-        Enjoys working in a team to achieve results while also being comfortable taking initiative independently.
-        Motivated to continuously learn and apply skills in real-world environments.
-      </p>
+        <div class="home-grid">
+          <a class="topic-card" href="#about" data-viewjump="about">
+            <div class="topic-title">About</div>
+            <div class="topic-desc">Quick intro + links</div>
+          </a>
 
-      <div class="hero-actions">
-        <a class="btn" href="Hassan-Abdallah-CV.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
-        <a class="btn secondary" href="https://www.linkedin.com/in/hassan-abdallah-5248aa334" target="_blank" rel="noopener">View LinkedIn</a>
-      </div>
-    </section>
+          <a class="topic-card" href="#experience" data-viewjump="experience">
+            <div class="topic-title">Experience</div>
+            <div class="topic-desc">Work history & responsibilities</div>
+          </a>
 
-    <div class="grid">
-      <div>
-        <section id="experience" class="card reveal">
-          <h2>Work Experience</h2>
+          <a class="topic-card" href="#education" data-viewjump="education">
+            <div class="topic-title">Education</div>
+            <div class="topic-desc">Academic background</div>
+          </a>
 
-          <p><strong>Retail Assistant</strong> — Primark <span class="muted">(Nov 2022 – Nov 2024)</span></p>
-          <ul>
-            <li>Assisted customers and improved communication and service skills.</li>
-            <li>Worked with a team to maintain shop floor standards and support sales.</li>
-            <li>Supported different departments to help keep workflow running smoothly.</li>
-          </ul>
+          <a class="topic-card" href="#skills" data-viewjump="skills">
+            <div class="topic-title">Skills</div>
+            <div class="topic-desc">Searchable skills</div>
+          </a>
 
-          <p style="margin-top:14px;"><strong>Teaching Support</strong> — Al-Ikhlas Institution <span class="muted">(Apr 2022 – Nov 2022)</span></p>
-          <ul>
-            <li>Planned and supported teaching to provide a strong educational experience.</li>
-            <li>Worked with teachers to overcome learning difficulties students faced.</li>
-          </ul>
+          <a class="topic-card" href="#timeline" data-viewjump="timeline">
+            <div class="topic-title">Timeline</div>
+            <div class="topic-desc">Updates, progress & milestones</div>
+          </a>
 
-          <p style="margin-top:14px;"><strong>Waiter</strong> — Sahara Restaurant <span class="muted">(Jun 2021 – Jan 2022)</span></p>
-          <ul>
-            <li>Welcomed customers and provided a great experience.</li>
-            <li>Handled complaints and helped find solutions to resolve issues.</li>
-            <li>Took and processed orders and handled phone enquiries.</li>
-          </ul>
+          <a class="topic-card" href="#contact" data-viewjump="contact">
+            <div class="topic-title">Contact</div>
+            <div class="topic-desc">Email, LinkedIn, location</div>
+          </a>
+        </div>
+      </section>
 
-          <p style="margin-top:14px;"><strong>Work Experience</strong> — Boots <span class="muted">(Oct 2020 – Nov 2020)</span></p>
-          <ul>
-            <li>Supported customers with enquiries and improved confidence and communication.</li>
-            <li>Worked with the team to maintain standards and smooth operations.</li>
-          </ul>
-        </section>
+      <section class="card reveal">
+        <div class="row">
+          <h2 style="margin:0;">Latest updates</h2>
+          <a class="muted" href="#timeline" data-viewjump="timeline">View all →</a>
+        </div>
+        <div id="latestTimeline" style="margin-top:12px;"></div>
+      </section>
+    </main>
 
-        <section class="card reveal">
-          <h2>Extra-curricular</h2>
-          <p><strong>RBC Workshop</strong> <span class="muted">(Oct 2022)</span></p>
-          <ul>
-            <li>Built confidence speaking professionally in front of others.</li>
-            <li>Improved communication and approachability with customers/clients.</li>
-            <li>Developed patience and understanding when supporting others.</li>
-          </ul>
-        </section>
-      </div>
-
-      <div>
-        <section id="education" class="card reveal">
-          <h2>Education</h2>
-
-          <p><strong>University of Greenwich</strong> — BSc Computer Science (Faculty of Engineering)</p>
-          <p class="muted">2023 – Present</p>
-
-          <p style="margin-top:12px;"><strong>St Augustine’s CofE Sixth Form</strong> — London, UK</p>
-          <p class="muted">2021 – 2023 • Applied Science, Sports and IT: D*D*D</p>
-
-          <p style="margin-top:12px;"><strong>St Augustine’s CofE High School</strong> — London, UK</p>
-          <p class="muted">2016 – 2021 • Grades 5–9 including Maths, English and Science</p>
-        </section>
-
-        <section id="skills" class="card reveal">
-          <h2>Skills</h2>
-          <input id="skillSearch" class="input" placeholder="Search skills (e.g., communication, teamwork)..." />
-          <div id="skillsWrap" style="margin-top:10px;">
-            <span class="pill" data-skill="teamwork">Teamwork</span>
-            <span class="pill" data-skill="communication">Communication</span>
-            <span class="pill" data-skill="organisation">Organisation</span>
-            <span class="pill" data-skill="time management">Time management</span>
-            <span class="pill" data-skill="resilience">Resilient under pressure</span>
-            <span class="pill" data-skill="presentations">Presentation confidence</span>
-            <span class="pill" data-skill="writing">Good writing</span>
-            <span class="pill" data-skill="patience">Patience & sense of humour</span>
-            <span class="pill" data-skill="arabic">Arabic</span>
-            <span class="pill" data-skill="english">English</span>
+    <!-- ===================== ABOUT ===================== -->
+    <main id="view-about" class="view">
+      <section class="card reveal">
+        <div class="hero">
+          <div class="hero-left">
+            <img class="profile-img" src="profile.jpg" alt="Hassan Abdallah profile photo" />
+            <div>
+              <h1>About</h1>
+              <p class="muted">Full-time Computer Science student (BSc) • London, United Kingdom</p>
+              <span class="badge">Available to learn & grow</span>
+            </div>
           </div>
-          <p id="skillCount" class="section-note"></p>
-        </section>
+        </div>
 
-        <section id="contact" class="card reveal">
-          <h2>Contact</h2>
-          <p>Email: <a href="mailto:Hassanabdallah0505@gmail.com">Hassanabdallah0505@gmail.com</a></p>
-          <p>Location: London, United Kingdom</p>
-          <p>
+        <div class="chips">
+          <span class="chip">
+            Email:
+            <a href="mailto:Hassanabdallah0505@gmail.com">Hassanabdallah0505@gmail.com</a>
+            <button class="copy" type="button" data-copy="Hassanabdallah0505@gmail.com">Copy</button>
+          </span>
+          <span class="chip">
+            Phone: +07784015778
+            <button class="copy" type="button" data-copy="+07784015778">Copy</button>
+          </span>
+          <span class="chip">
+            LinkedIn:
+            <a href="https://www.linkedin.com/in/hassan-abdallah-5248aa334" target="_blank" rel="noopener">Open profile</a>
+          </span>
+        </div>
+
+        <p>
+          Confident and hardworking Computer Science student with strong communication and organisational skills.
+          Enjoys working in a team to achieve results while also being comfortable taking initiative independently.
+          Motivated to continuously learn and apply skills in real-world environments.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn" href="Hassan-Abdallah-CV.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
+          <a class="btn secondary" href="#timeline" data-viewjump="timeline">View Timeline</a>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===================== EXPERIENCE ===================== -->
+    <main id="view-experience" class="view">
+      <section class="card reveal">
+        <h1>Experience</h1>
+        <p class="muted">Work history and responsibilities.</p>
+
+        <p><strong>Retail Assistant</strong> — Primark <span class="muted">(Nov 2022 – Nov 2024)</span></p>
+        <ul>
+          <li>Assisted customers and improved communication and service skills.</li>
+          <li>Worked with a team to maintain shop floor standards and support sales.</li>
+          <li>Supported different departments to help keep workflow running smoothly.</li>
+        </ul>
+
+        <hr class="hr" />
+
+        <p><strong>Teaching Support</strong> — Al-Ikhlas Institution <span class="muted">(Apr 2022 – Nov 2022)</span></p>
+        <ul>
+          <li>Planned and supported teaching to provide a strong educational experience.</li>
+          <li>Worked with teachers to overcome learning difficulties students faced.</li>
+        </ul>
+
+        <hr class="hr" />
+
+        <p><strong>Waiter</strong> — Sahara Restaurant <span class="muted">(Jun 2021 – Jan 2022)</span></p>
+        <ul>
+          <li>Welcomed customers and provided a great experience.</li>
+          <li>Handled complaints and helped find solutions to resolve issues.</li>
+          <li>Took and processed orders and handled phone enquiries.</li>
+        </ul>
+
+        <hr class="hr" />
+
+        <p><strong>Work Experience</strong> — Boots <span class="muted">(Oct 2020 – Nov 2020)</span></p>
+        <ul>
+          <li>Supported customers with enquiries and improved confidence and communication.</li>
+          <li>Worked with the team to maintain standards and smooth operations.</li>
+        </ul>
+      </section>
+
+      <section class="card reveal">
+        <h2>Extra-curricular</h2>
+        <p><strong>RBC Workshop</strong> <span class="muted">(Oct 2022)</span></p>
+        <ul>
+          <li>Built confidence speaking professionally in front of others.</li>
+          <li>Improved communication and approachability with customers/clients.</li>
+          <li>Developed patience and understanding when supporting others.</li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- ===================== EDUCATION ===================== -->
+    <main id="view-education" class="view">
+      <section class="card reveal">
+        <h1>Education</h1>
+        <p class="muted">Academic background.</p>
+
+        <p><strong>University of Greenwich</strong> — BSc Computer Science (Faculty of Engineering)</p>
+        <p class="muted">2023 – Present</p>
+
+        <hr class="hr" />
+
+        <p><strong>St Augustine’s CofE Sixth Form</strong> — London, UK</p>
+        <p class="muted">2021 – 2023 • Applied Science, Sports and IT: D*D*D</p>
+
+        <hr class="hr" />
+
+        <p><strong>St Augustine’s CofE High School</strong> — London, UK</p>
+        <p class="muted">2016 – 2021 • Grades 5–9 including Maths, English and Science</p>
+      </section>
+    </main>
+
+    <!-- ===================== SKILLS ===================== -->
+    <main id="view-skills" class="view">
+      <section class="card reveal">
+        <h1>Skills</h1>
+        <p class="muted">Search and filter.</p>
+
+        <input id="skillSearch" class="input" placeholder="Search skills (e.g., communication, teamwork)..." />
+
+        <div id="skillsWrap" style="margin-top:10px;">
+          <span class="pill" data-skill="teamwork">Teamwork</span>
+          <span class="pill" data-skill="communication">Communication</span>
+          <span class="pill" data-skill="organisation">Organisation</span>
+          <span class="pill" data-skill="time management">Time management</span>
+          <span class="pill" data-skill="resilience">Resilient under pressure</span>
+          <span class="pill" data-skill="presentations">Presentation confidence</span>
+          <span class="pill" data-skill="writing">Good writing</span>
+          <span class="pill" data-skill="patience">Patience & sense of humour</span>
+          <span class="pill" data-skill="arabic">Arabic</span>
+          <span class="pill" data-skill="english">English</span>
+        </div>
+
+        <p id="skillCount" class="section-note"></p>
+      </section>
+    </main>
+
+    <!-- ===================== TIMELINE ===================== -->
+    <main id="view-timeline" class="view">
+      <section class="card reveal">
+        <h1>Timeline</h1>
+        <p class="muted">Regular updates on projects, learning, and milestones.</p>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
+          <input id="timelineSearch" class="input" style="flex: 1 1 260px;"
+            placeholder="Search updates (e.g., API, React, Python)..." />
+          <select id="timelineTag" class="input" style="flex: 0 0 220px;">
+            <option value="">All tags</option>
+          </select>
+        </div>
+
+        <hr class="hr" />
+
+        <div id="timelineWrap" style="margin-top:14px;"></div>
+
+        <div style="margin-top:14px; display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;">
+          <p id="timelineCount" class="section-note" style="margin:0;"></p>
+          <button id="timelineMore" class="btn secondary" type="button" style="margin:0;">Load more</button>
+        </div>
+
+        <p class="section-note">
+          Tip: add new updates inside the <code>timelineUpdates</code> array in the script at the bottom of this file.
+        </p>
+      </section>
+    </main>
+
+    <!-- ===================== CONTACT ===================== -->
+    <main id="view-contact" class="view">
+      <section class="card reveal">
+        <h1>Contact</h1>
+        <p class="muted">Best ways to reach me.</p>
+
+        <div class="chips">
+          <span class="chip">
+            Email:
+            <a href="mailto:Hassanabdallah0505@gmail.com">Hassanabdallah0505@gmail.com</a>
+            <button class="copy" type="button" data-copy="Hassanabdallah0505@gmail.com">Copy</button>
+          </span>
+          <span class="chip">
+            Phone: +07784015778
+            <button class="copy" type="button" data-copy="+07784015778">Copy</button>
+          </span>
+          <span class="chip">
             LinkedIn:
             <a href="https://www.linkedin.com/in/hassan-abdallah-5248aa334" target="_blank" rel="noopener">
               www.linkedin.com/in/hassan-abdallah-5248aa334
             </a>
-          </p>
-        </section>
-      </div>
-    </div>
+          </span>
+          <span class="chip">Location: London, United Kingdom</span>
+        </div>
 
-    <div class="footer">
-      © <span id="year"></span> Hassan Abdallah
-    </div>
+        <hr class="hr" />
+
+        <p>Prefer email for opportunities and project discussions. I usually respond quickly.</p>
+
+        <div class="hero-actions">
+          <a class="btn" href="mailto:Hassanabdallah0505@gmail.com">Email me</a>
+          <a class="btn secondary" href="Hassan-Abdallah-CV.pdf" target="_blank" rel="noopener">Download CV</a>
+        </div>
+      </section>
+    </main>
+
+    <div class="footer">© <span id="year"></span> Hassan Abdallah</div>
   </div>
 
-  <button id="topBtn" class="topbtn" aria-label="Back to top">↑ Top</button>
-
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    // ===== Year =====
+    (function(){
+      const year = document.getElementById("year");
+      if (year) year.textContent = new Date().getFullYear();
+    })();
 
-    const reveals = document.querySelectorAll(".reveal");
-    if ("IntersectionObserver" in window) {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) e.target.classList.add("show");
+    // ===== Theme (saved + system default) =====
+    (function initTheme(){
+      const root = document.documentElement;
+      const btn = document.getElementById("themeToggle");
+      const icon = document.getElementById("themeIcon");
+      if (!btn) return;
+
+      const saved = localStorage.getItem("theme"); // "light" | "dark" | null
+      const systemPrefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+      function setTheme(mode){
+        root.setAttribute("data-theme", mode);
+        localStorage.setItem("theme", mode);
+        if (icon) icon.textContent = (mode === "dark") ? "☀️" : "🌙";
+        btn.setAttribute("aria-label", `Switch to ${mode === "dark" ? "light" : "dark"} theme`);
+      }
+
+      if (saved === "light" || saved === "dark") setTheme(saved);
+      else setTheme(systemPrefersDark ? "dark" : "light");
+
+      btn.addEventListener("click", () => {
+        const current = root.getAttribute("data-theme") || "light";
+        setTheme(current === "dark" ? "light" : "dark");
+      });
+    })();
+
+    // ===== Reveal on scroll =====
+    (function(){
+      const reveals = document.querySelectorAll(".reveal");
+      if (!reveals.length) return;
+
+      if ("IntersectionObserver" in window) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("show"); });
+        }, { threshold: 0.12 });
+        reveals.forEach(el => io.observe(el));
+      } else {
+        reveals.forEach(el => el.classList.add("show"));
+      }
+    })();
+
+    // ===== Copy buttons =====
+    (function initCopyButtons(){
+      const btns = document.querySelectorAll("[data-copy]");
+      if (!btns.length) return;
+
+      btns.forEach(btn => {
+        btn.addEventListener("click", async () => {
+          const text = btn.getAttribute("data-copy") || "";
+          try{
+            await navigator.clipboard.writeText(text);
+            btn.textContent = "Copied";
+            setTimeout(() => (btn.textContent = "Copy"), 900);
+          }catch{
+            const ta = document.createElement("textarea");
+            ta.value = text;
+            ta.style.position = "fixed";
+            ta.style.left = "-9999px";
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand("copy");
+            ta.remove();
+            btn.textContent = "Copied";
+            setTimeout(() => (btn.textContent = "Copy"), 900);
+          }
         });
-      }, { threshold: 0.12 });
-      reveals.forEach(el => io.observe(el));
-    } else {
-      reveals.forEach(el => el.classList.add("show"));
-    }
+      });
+    })();
 
-    const search = document.getElementById("skillSearch");
-    const skills = Array.from(document.querySelectorAll("#skillsWrap .pill"));
-    const count = document.getElementById("skillCount");
+    // ===== Single-file "pages" routing =====
+    function setActiveView(view){
+      const views = ["home","about","experience","education","skills","timeline","contact"];
+      const safe = views.includes(view) ? view : "home";
 
-    function updateSkillFilter(){
-      const q = (search.value || "").trim().toLowerCase();
-      let visible = 0;
+      document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
+      const el = document.getElementById("view-" + safe);
+      if (el) el.classList.add("active");
 
-      skills.forEach(s => {
-        const txt = (s.dataset.skill || s.textContent).toLowerCase();
-        const show = !q || txt.includes(q);
-        s.style.display = show ? "inline-block" : "none";
-        if (show) visible++;
+      document.querySelectorAll("[data-viewlink]").forEach(a => {
+        a.classList.toggle("active", a.getAttribute("data-viewlink") === safe);
       });
 
-      count.textContent = q
-        ? `Showing ${visible} skill(s) matching "${q}".`
-        : `Showing ${visible} skill(s).`;
+      // Scroll to top on view change for a real "page" feel
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
-    search.addEventListener("input", updateSkillFilter);
-    updateSkillFilter();
+    function currentHashView(){
+      const h = (location.hash || "#home").replace("#","");
+      return h || "home";
+    }
 
-    const topBtn = document.getElementById("topBtn");
-    window.addEventListener("scroll", () => {
-      topBtn.style.display = window.scrollY > 500 ? "block" : "none";
+    window.addEventListener("hashchange", () => setActiveView(currentHashView()));
+    // handle buttons that jump to views (same as hash)
+    document.addEventListener("click", (e) => {
+      const jump = e.target.closest("[data-viewjump]");
+      if (!jump) return;
+      const v = jump.getAttribute("data-viewjump");
+      if (!v) return;
+      location.hash = "#" + v;
     });
-    topBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+    // Init view
+    setActiveView(currentHashView());
+
+    // ===== Timeline data (edit/add your updates here) =====
+    const timelineUpdates = [
+      {
+        date: "2025-12-15",
+        title: "Portfolio upgraded: single-file multi-page layout",
+        text: "Combined all pages into one file with an interactive homepage and smooth navigation.",
+        tags: ["portfolio", "ui"],
+        links: [{ label: "LinkedIn", url: "https://www.linkedin.com/in/hassan-abdallah-5248aa334" }]
+      },
+      {
+        date: "2025-12-10",
+        title: "Started a new project: To-do app (local storage)",
+        text: "Building a simple task app with categories, filters, and persistent storage.",
+        tags: ["javascript", "web"],
+        links: [{ label: "GitHub", url: "#" }]
+      },
+      {
+        date: "2025-11-28",
+        title: "Learning focus: Data structures practice",
+        text: "Worked on stacks/queues + Big-O analysis and implemented examples in Python.",
+        tags: ["python", "learning"],
+        links: []
+      }
+    ];
+
+    function fmtDate(iso){
+      try{
+        const d = new Date(iso + "T00:00:00");
+        return d.toLocaleDateString(undefined, { year:"numeric", month:"short", day:"2-digit" });
+      }catch{ return iso || ""; }
+    }
+
+    // ===== Homepage timeline preview =====
+    function renderTimelinePreview(limit = 3){
+      const el = document.getElementById("latestTimeline");
+      if (!el) return;
+
+      const data = [...timelineUpdates]
+        .sort((a,b)=> (b.date||"").localeCompare(a.date||""))
+        .slice(0, limit);
+
+      el.innerHTML = data.map(it => {
+        const tags = (it.tags || []).slice(0, 4).map(t => `<span class="pill">${t}</span>`).join("");
+        return `
+          <div class="timeline-card" style="margin-top:12px;">
+            <div class="timeline-top">
+              <p class="timeline-title">${it.title || "Update"}</p>
+              <span class="timeline-date">${fmtDate(it.date || "")}</span>
+            </div>
+            <p class="timeline-text">${it.text || ""}</p>
+            ${tags ? `<div class="timeline-tags">${tags}</div>` : ""}
+          </div>
+        `;
+      }).join("");
+    }
+    renderTimelinePreview(3);
+
+    // ===== Skills page filter =====
+    (function initSkills(){
+      const search = document.getElementById("skillSearch");
+      const skills = Array.from(document.querySelectorAll("#skillsWrap .pill"));
+      const count = document.getElementById("skillCount");
+      if (!search || !skills.length || !count) return;
+
+      function update(){
+        const q = (search.value || "").trim().toLowerCase();
+        let visible = 0;
+
+        skills.forEach(s => {
+          const txt = (s.dataset.skill || s.textContent || "").toLowerCase();
+          const show = !q || txt.includes(q);
+          s.style.display = show ? "inline-block" : "none";
+          if (show) visible++;
+        });
+
+        count.textContent = q
+          ? `Showing ${visible} skill(s) matching "${q}".`
+          : `Showing ${visible} skill(s).`;
+      }
+
+      search.addEventListener("input", update);
+      update();
+    })();
+
+    // ===== Timeline page (search + tags + load more) =====
+    (function initTimeline(){
+      const wrap = document.getElementById("timelineWrap");
+      const search = document.getElementById("timelineSearch");
+      const tagSelect = document.getElementById("timelineTag");
+      const count = document.getElementById("timelineCount");
+      const moreBtn = document.getElementById("timelineMore");
+      if (!wrap || !search || !tagSelect || !count || !moreBtn) return;
+
+      const data = [...timelineUpdates].sort((a,b) => (b.date || "").localeCompare(a.date || ""));
+      const tags = Array.from(new Set(data.flatMap(x => x.tags || []))).sort((a,b)=>a.localeCompare(b));
+
+      // populate dropdown
+      tags.forEach(t => {
+        const opt = document.createElement("option");
+        opt.value = t;
+        opt.textContent = t;
+        tagSelect.appendChild(opt);
+      });
+
+      let visibleLimit = 6;
+
+      function matches(item, q, tag){
+        const hay = `${item.title||""} ${item.text||""} ${(item.tags||[]).join(" ")}`.toLowerCase();
+        const okQ = !q || hay.includes(q);
+        const okT = !tag || (item.tags || []).includes(tag);
+        return okQ && okT;
+      }
+
+      function render(){
+        const q = (search.value || "").trim().toLowerCase();
+        const tag = (tagSelect.value || "").trim();
+
+        const filtered = data.filter(it => matches(it, q, tag));
+        const shown = filtered.slice(0, visibleLimit);
+
+        wrap.innerHTML = "";
+
+        shown.forEach(it => {
+          const linksHtml = (it.links || [])
+            .filter(l => l && l.url)
+            .map(l => `<a href="${l.url}" target="_blank" rel="noopener">${l.label || "Link"}</a>`)
+            .join(" • ");
+
+          const tagsHtml = (it.tags || [])
+            .map(t => `<span class="pill" data-timeline-tag="${t}" title="Filter by tag">${t}</span>`)
+            .join("");
+
+          const item = document.createElement("div");
+          item.className = "timeline-item";
+          item.innerHTML = `
+            <div class="timeline-card">
+              <div class="timeline-top">
+                <p class="timeline-title">${it.title || "Update"}</p>
+                <span class="timeline-date">${fmtDate(it.date || "")}</span>
+              </div>
+              <p class="timeline-text">${it.text || ""}</p>
+              ${tagsHtml ? `<div class="timeline-tags">${tagsHtml}</div>` : ""}
+              ${linksHtml ? `<div class="timeline-links">${linksHtml}</div>` : ""}
+            </div>
+          `;
+          wrap.appendChild(item);
+        });
+
+        count.textContent = `Showing ${Math.min(visibleLimit, filtered.length)} of ${filtered.length} update(s).`;
+        moreBtn.style.display = filtered.length > visibleLimit ? "inline-flex" : "none";
+      }
+
+      wrap.addEventListener("click", (e) => {
+        const el = e.target.closest("[data-timeline-tag]");
+        if (!el) return;
+        tagSelect.value = el.getAttribute("data-timeline-tag") || "";
+        visibleLimit = 6;
+        render();
+      });
+
+      search.addEventListener("input", () => { visibleLimit = 6; render(); });
+      tagSelect.addEventListener("change", () => { visibleLimit = 6; render(); });
+      moreBtn.addEventListener("click", () => { visibleLimit += 6; render(); });
+
+      render();
+    })();
   </script>
 </body>
 </html>
-
