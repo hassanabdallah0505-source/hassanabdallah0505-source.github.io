@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hassan Abdallah | CV</title>
+  <meta name="description" content="Hassan Abdallah — Full-time Computer Science BSc student in London. CV, experience, education, and skills." />
+
+  <!-- ✅ IMPORTANT: only enable reveal hiding if JS is running -->
+  <script>
+    document.documentElement.classList.add("js");
+  </script>
+
+  <style>
+:root{
+  --bg:#071a17;
+  --card:#0b2a24;
+  --border:#134e4a;
+  --text:#ecfeff;
+  --muted:#99f6e4;
+  --accent:#14b8a6;   /* green buttons */
+  --accent2:#0f766e;
+  --pill:#134e4a;
+  --shadow: 0 10px 30px rgba(0,0,0,.45);
+}
+    *{ box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(42,99,255,.18), transparent 55%),
+                  radial-gradient(900px 500px at 90% 10%, rgba(184,199,255,.14), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+    }
+    a{ color:#9db7ff; text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
+    .wrap{ max-width: 1040px; margin: 0 auto; padding: 20px 20px 60px; }
+    .nav{
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,15,25,.65);
+      border-bottom: 1px solid rgba(34,48,79,.7);
+    }
+    .nav-inner{
+      max-width: 1040px; margin: 0 auto;
+      padding: 12px 20px;
+      display:flex; gap:12px; align-items:center; justify-content:space-between;
+    }
+    .brand{ display:flex; flex-direction:column; line-height:1.1; }
+    .brand b{ font-size: 15px; }
+    .brand span{ font-size: 12px; color: var(--muted); }
+    .nav-links{
+      display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .nav-links a{
+      font-size: 13px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(34,48,79,.8);
+      background: rgba(17,24,42,.35);
+      transition: transform .15s ease, background .15s ease;
+    }
+    .nav-links a:hover{ transform: translateY(-1px); background: rgba(17,24,42,.7); text-decoration:none; }
+
+    .card{
+      background: rgba(17,24,42,.85);
+      border: 1px solid rgba(34,48,79,.9);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+      margin-top: 16px;
+    }
+    .grid{
+      display:grid; grid-template-columns: 1fr; gap: 16px;
+      margin-top: 16px;
+    }
+    @media (min-width: 950px){
+      .grid{ grid-template-columns: 1.2fr .8fr; }
+    }
+
+    h1{ margin:0 0 6px; font-size: 42px; letter-spacing: .2px; }
+    h2{ margin:0 0 12px; font-size: 22px; color:#b8c7ff; }
+    p{ margin: 10px 0; line-height:1.55; }
+    .muted{ color: var(--muted); }
+
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      background: var(--accent);
+      color: white;
+      font-weight: 650;
+      margin: 10px 10px 0 0;
+      border: 1px solid rgba(255,255,255,.12);
+      transition: transform .15s ease, filter .15s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); filter: brightness(1.05); text-decoration:none; }
+    .btn.secondary{ background: var(--accent2); }
+
+    .chips{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 10px; }
+    .chip{
+      font-size: 13px; color: var(--muted);
+      border: 1px solid rgba(34,48,79,.9);
+      padding: 7px 10px; border-radius: 999px;
+      background: rgba(17,24,42,.35);
+    }
+
+    ul{ margin: 8px 0 0 18px; }
+    li{ margin: 6px 0; line-height:1.5; }
+
+    .pill{
+      display:inline-block;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(43,59,99,.95);
+      margin: 6px 6px 0 0;
+      font-size: 14px;
+      background: rgba(17,24,42,.35);
+      transition: transform .12s ease, border-color .12s ease;
+      cursor: default;
+    }
+    .pill:hover{ transform: translateY(-1px); border-color: rgba(157,183,255,.65); }
+
+    .section-note{ font-size: 13px; color: var(--muted); margin-top: 10px; }
+
+    /* ✅ FIX: content is visible by default */
+    .reveal{ opacity: 1; transform: none; }
+
+    /* Only hide/animate when JS is confirmed running */
+    .js .reveal{
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity .6s ease, transform .6s ease;
+      will-change: opacity, transform;
+    }
+    .js .reveal.show{
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .input{
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(34,48,79,.9);
+      background: rgba(11,15,25,.35);
+      color: var(--text);
+      outline: none;
+    }
+    .input::placeholder{ color: rgba(170,182,214,.75); }
+
+    .topbtn{
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 60;
+      display: none;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(34,48,79,.9);
+      background: rgba(17,24,42,.85);
+      color: var(--text);
+      box-shadow: var(--shadow);
+      cursor: pointer;
+    }
+    .topbtn:hover{ filter: brightness(1.1); }
+
+    .footer{
+      text-align:center;
+      margin-top: 22px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .row{
+      display:flex; flex-wrap:wrap; gap: 10px;
+      align-items:center; justify-content: space-between;
+    }
+    .badge{
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(34,48,79,.9);
+      background: rgba(17,24,42,.35);
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <b>Hassan Abdallah</b>
+        <span>Computer Science (BSc) • London</span>
+      </div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <section id="about" class="card reveal">
+      <div class="row">
+        <div>
+          <h1>Hassan Abdallah</h1>
+          <p class="muted">Full-time Computer Science student (BSc) • London, United Kingdom</p>
+        </div>
+        <span class="badge">Available to learn & grow</span>
+      </div>
+
+      <div class="chips">
+        <span class="chip">Email: <a href="mailto:Hassanabdallah0505@gmail.com">Hassanabdallah0505@gmail.com</a></span>
+        <span class="chip">Phone: +07784015778</span>
+        <span class="chip">LinkedIn: <a href="https://www.linkedin.com/in/hassan-abdallah-5248aa334" target="_blank" rel="noopener">www.linkedin.com/in/hassan-abdallah-5248aa334</a></span>
+      </div>
+
+      <p>
+        Confident and hardworking Computer Science student with strong communication and organisational skills.
+        Enjoys working in a team to achieve results while also being comfortable taking initiative independently.
+        Motivated to continuously learn and apply skills in real-world environments.
+      </p>
+
+      <p>
+        <a class="btn" href="Hassan-Abdallah-CV.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
+        <a class="btn secondary" href="https://www.linkedin.com/in/hassan-abdallah-5248aa334" target="_blank" rel="noopener">View LinkedIn</a>
+      </p>
+
+      <p class="section-note">
+        Put <b>index.html</b> and <b>Hassan-Abdallah-CV.pdf</b> in the same folder.
+      </p>
+    </section>
+
+    <div class="grid">
+      <div>
+        <section id="experience" class="card reveal">
+          <h2>Work Experience</h2>
+
+          <p><strong>Retail Assistant</strong> — Primark <span class="muted">(Nov 2022 – Nov 2024)</span></p>
+          <ul>
+            <li>Assisted customers and improved communication and service skills.</li>
+            <li>Worked with a team to maintain shop floor standards and support sales.</li>
+            <li>Supported different departments to help keep workflow running smoothly.</li>
+          </ul>
+
+          <p style="margin-top:14px;"><strong>Teaching Support</strong> — Al-Ikhlas Institution <span class="muted">(Apr 2022 – Nov 2022)</span></p>
+          <ul>
+            <li>Planned and supported teaching to provide a strong educational experience.</li>
+            <li>Worked with teachers to overcome learning difficulties students faced.</li>
+          </ul>
+
+          <p style="margin-top:14px;"><strong>Waiter</strong> — Sahara Restaurant <span class="muted">(Jun 2021 – Jan 2022)</span></p>
+          <ul>
+            <li>Welcomed customers and provided a great experience.</li>
+            <li>Handled complaints and helped find solutions to resolve issues.</li>
+            <li>Took and processed orders and handled phone enquiries.</li>
+          </ul>
+
+          <p style="margin-top:14px;"><strong>Work Experience</strong> — Boots <span class="muted">(Oct 2020 – Nov 2020)</span></p>
+          <ul>
+            <li>Supported customers with enquiries and improved confidence and communication.</li>
+            <li>Worked with the team to maintain standards and smooth operations.</li>
+          </ul>
+        </section>
+
+        <section class="card reveal">
+          <h2>Extra-curricular</h2>
+          <p><strong>RBC Workshop</strong> <span class="muted">(Oct 2022)</span></p>
+          <ul>
+            <li>Built confidence speaking professionally in front of others.</li>
+            <li>Improved communication and approachability with customers/clients.</li>
+            <li>Developed patience and understanding when supporting others.</li>
+          </ul>
+        </section>
+      </div>
+
+      <div>
+        <section id="education" class="card reveal">
+          <h2>Education</h2>
+
+          <p><strong>University of Greenwich</strong> — BSc Computer Science (Faculty of Engineering)</p>
+          <p class="muted">2023 – Present</p>
+
+          <p style="margin-top:12px;"><strong>St Augustine’s CofE Sixth Form</strong> — London, UK</p>
+          <p class="muted">2021 – 2023 • Applied Science, Sports and IT: D*D*D</p>
+
+          <p style="margin-top:12px;"><strong>St Augustine’s CofE High School</strong> — London, UK</p>
+          <p class="muted">2016 – 2021 • Grades 5–9 including Maths, English and Science</p>
+        </section>
+
+        <section id="skills" class="card reveal">
+          <h2>Skills</h2>
+          <input id="skillSearch" class="input" placeholder="Search skills (e.g., communication, teamwork)..." />
+          <div id="skillsWrap" style="margin-top:10px;">
+            <span class="pill" data-skill="teamwork">Teamwork</span>
+            <span class="pill" data-skill="communication">Communication</span>
+            <span class="pill" data-skill="organisation">Organisation</span>
+            <span class="pill" data-skill="time management">Time management</span>
+            <span class="pill" data-skill="resilience">Resilient under pressure</span>
+            <span class="pill" data-skill="presentations">Presentation confidence</span>
+            <span class="pill" data-skill="writing">Good writing</span>
+            <span class="pill" data-skill="patience">Patience & sense of humour</span>
+            <span class="pill" data-skill="arabic">Arabic</span>
+            <span class="pill" data-skill="english">English</span>
+          </div>
+          <p id="skillCount" class="section-note"></p>
+        </section>
+
+        <section id="contact" class="card reveal">
+          <h2>Contact</h2>
+          <p>Email: <a href="mailto:Hassanabdallah0505@gmail.com">Hassanabdallah0505@gmail.com</a></p>
+          <p>Location: London, United Kingdom</p>
+          <p>
+            LinkedIn:
+            <a href="https://www.linkedin.com/in/hassan-abdallah-5248aa334" target="_blank" rel="noopener">
+              www.linkedin.com/in/hassan-abdallah-5248aa334
+            </a>
+          </p>
+        </section>
+      </div>
+    </div>
+
+    <div class="footer">
+      © <span id="year"></span> Hassan Abdallah
+    </div>
+  </div>
+
+  <button id="topBtn" class="topbtn" aria-label="Back to top">↑ Top</button>
+
+  <script>
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Reveal on scroll (safe fallback)
+    const reveals = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("show"); });
+      }, { threshold: 0.12 });
+      reveals.forEach(el => io.observe(el));
+    } else {
+      // If observer not supported, just show everything
+      reveals.forEach(el => el.classList.add("show"));
+    }
+
+    // Skills search/filter
+    const search = document.getElementById("skillSearch");
+    const skills = Array.from(document.querySelectorAll("#skillsWrap .pill"));
+    const count = document.getElementById("skillCount");
+
+    function updateSkillFilter(){
+      const q = (search.value || "").trim().toLowerCase();
+      let visible = 0;
+      skills.forEach(s => {
+        const txt = (s.dataset.skill || s.textContent).toLowerCase();
+        const show = !q || txt.includes(q);
+        s.style.display = show ? "inline-block" : "none";
+        if (show) visible++;
+      });
+      count.textContent = q ? `Showing ${visible} skill(s) matching "${q}".` : `Showing ${visible} skill(s).`;
+    }
+    search.addEventListener("input", updateSkillFilter);
+    updateSkillFilter();
+
+    // Back to top button
+    const topBtn = document.getElementById("topBtn");
+    window.addEventListener("scroll", () => {
+      topBtn.style.display = window.scrollY > 500 ? "block" : "none";
+    });
+    topBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+  </script>
+</body>
+</html>
